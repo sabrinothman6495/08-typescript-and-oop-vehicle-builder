@@ -2,6 +2,7 @@ import Vehicle from './vehicle.js';
 import Wheel from './Wheel.js';
 
 class Motorbike extends Vehicle {
+
   vin: string;
   color: string;
   make: string;
@@ -13,6 +14,7 @@ class Motorbike extends Vehicle {
 
   constructor(vin: string, color: string, make: string, model: string, year: number, weight: number, maxSpeed: number, wheels: Wheel[]) {
     super();
+
     this.vin = vin;
     this.color = color;
     this.make = make;

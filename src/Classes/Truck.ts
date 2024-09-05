@@ -7,6 +7,7 @@ import AbleToTow from '../interfaces/AbleToTow.js';
 
 // TODO: The Truck class should extend the Vehicle class and should implement the AbleToTow interface
 class Truck extends Vehicle implements AbleToTow {
+  
   // TODO: Declare properties of the Truck class
   vin: string;
   make: string;
@@ -50,8 +51,6 @@ class Truck extends Vehicle implements AbleToTow {
     } else {
       console.log(`The ${vehicleMake} ${vehicleModel} is too heavy to be towed`);
     }
-    // TODO: If it is, log that the vehicle is being towed
-    // TODO: If it is not, log that the vehicle is too heavy to be towed
   }
 
   // TODO: Override the printDetails method from the Vehicle class
