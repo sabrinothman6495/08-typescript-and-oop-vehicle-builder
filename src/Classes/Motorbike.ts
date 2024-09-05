@@ -1,51 +1,31 @@
-import Driveable from "../interfaces/Driveable";
-class motorbike implements Driveable{
-    started: boolean;
-    currentSpeed: number;
-    constructor(){
-        this.started = false;
-        this.currentSpeed = 0;
-    }
-    start(): void {
-        this.started = true;
-        console.log("Motorbike has started");
-    }
-    accelerate(change: number): void {
-        if (this.started) {
-            this.currentSpeed += change;
-            console.log(`Motorbike is accelerating by ${change} mph`);
-        } else {
-            console.log("Motorbike is not started");
-        }
-    }
-    decelerate(change: number): void {
-        if (this.started) {
-            this.currentSpeed -= change;
-            console.log(`Motorbike is decelerating by ${change} mph`);
-        } else {
-            console.log("Motorbike is not started");
-        }
-    }
-    stop(): void {
-        if (this.started) {
-            this.started = false;
-            this.currentSpeed = 0;
-            console.log("Motorbike has stopped");
-        }
-    }
-    turn(direction: string): void {
-        if (this.started) {
-            console.log(`Motorbike is turning ${direction}`);
-        } else {
-            console.log("Motorbike is not started");
-        }
-    }
-    reverse(): void {
-        if (this.started) {
-            console.log("Motorbike is reversing");
-        } else {
-            console.log("Motorbike is not started");
-        }
-    }
+import Vehicle from './vehicle.js';
+import Wheel from './Wheel.js';
+
+class Motorbike extends Vehicle {
+  vin: string;
+  color: string;
+  make: string;
+  model: string;
+  year: number;
+  weight: number;
+  maxSpeed: number;
+  wheels: Wheel[];
+
+  constructor(vin: string, color: string, make: string, model: string, year: number, weight: number, maxSpeed: number, wheels: Wheel[]) {
+    super();
+    this.vin = vin;
+    this.color = color;
+    this.make = make;
+    this.model = model;
+    this.year = year;
+    this.weight = weight;
+    this.maxSpeed = maxSpeed;
+    this.wheels = wheels;
+  }
+
+  performAction() {
+    console.log(`The ${this.make} ${this.model} motorbike is speeding through traffic.`);
+  }
 }
-export default motorbike;
+
+export default Motorbike;

@@ -1,65 +1,79 @@
-import Driveable from "../interfaces/Driveable";
+// import Driveable interface
+import Driveable from '../interfaces/Driveable.js';
 
+// Vehicle class that implements Driveable interface
 class Vehicle implements Driveable {
-   started: boolean;
-   currentSpeed: number;
+  // Declare properties of the Vehicle class
+  started: boolean;
+  currentSpeed: number;
 
-    constructor() {
-        this.started = false;
-        this.currentSpeed = 0;
+  // Constructor for the Vehicle class
+  constructor() {
+    this.started = false;
+    this.currentSpeed = 0;
+  }
 
-    }
+  // Method to print vehicle details
+  printDetails(): void {
+    console.log(`Vehicle started: ${this.started}`);
+    console.log(`Vehicle current speed: ${this.currentSpeed} mph`);
+  }
 
-    start () : void {
-        this.started = true;
-    console.log("Vehicle has started");
+  // Method to start the vehicle
+  start(): void {
+    this.started = true;
+    console.log('Vehicle started');
+  }
 
+  // Method to accelerate the vehicle
+  accelerate(change: number): void {
+    // Check if the vehicle is started
+    if (this.started) {
+      this.currentSpeed += change;
+      console.log(`Vehicle accelerated to ${this.currentSpeed} mph`);
+    } else {
+      console.log('Start the vehicle first');
     }
-    accelerate (change: number) : void {
-        if(this.started) {
-            this.currentSpeed += change;
-            console.log(`Vehicle is accelerating by ${change} mph`);
-        
-        }
-        else {
-            console.log("Vehicle is not started");
-        }
-             
-    }
-        
-   decelerate(change: number): void {
-         if(this.started) {
-              this.currentSpeed -= change;
-              console.log(`Vehicle is decelerating by ${change} mph`);
-         }
-         else {
-              console.log("Vehicle is not started");
-         }
-   } 
-    stop(): void {
-        if (this.started) {
-            this.started = false;
-            this.currentSpeed = 0;
-            console.log("Vehicle has stopped");
-        }
-    }
+  }
 
-    turn(direction: string): void {
-        if(this.started) {
-            console.log(`Vehicle is turning ${direction}`);
-        }
-        else {
-            console.log("Vehicle is not started");
-        }
+  // Method to decelerate the vehicle
+  decelerate(change: number): void {
+    // Check if the vehicle is started
+    if (this.started) {
+      this.currentSpeed -= change;
+      console.log(`Vehicle decelerated to ${this.currentSpeed} mph`);
+    } else {
+      console.log('Start the vehicle first');
     }
-    reverse(): void {
-        if(this.started) {
-            console.log("Vehicle is reversing");
-        }
-        else {
-            console.log("Vehicle is not started");
-        }
-        
+  }
+
+  // Method to stop the vehicle
+  stop(): void {
+    this.currentSpeed = 0;
+    this.started = false;
+    console.log('Vehicle stopped');
+  }
+
+  // Method to turn the vehicle
+  turn(direction: string): void {
+    // Check if the vehicle is started
+    if (this.started) {
+      console.log(`Vehicle turned ${direction}`);
+    } else {
+      console.log('Start the vehicle first');
     }
-};
+  }
+
+  // Method to reverse the vehicle
+  reverse(): void {
+    // Check if the vehicle is started
+    if (this.started) {
+      console.log('Vehicle reversed');
+    } else {
+      console.log('Start the vehicle first');
+    }
+  }
+}
+
+// Export the Vehicle class
 export default Vehicle;
