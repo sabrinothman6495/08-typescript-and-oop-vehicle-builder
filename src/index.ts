@@ -4,17 +4,17 @@ import Car from "./Classes/Car.js";
 import Motorbike from "./Classes/Motorbike.js";
 import Wheel from "./Classes/Wheel.js";
 import Cli from "./Classes/Cli.js";
-import Vehicle from "./Classes/vehicle.js";
 
-// create an array of vehicles
-const vehicles: Vehicle[] = [];
+// create arrays for each vehicle type
+const trucks: Truck[] = [];
 const cars: Car[] = [];
-const trucks: Truck[] = []; 
 const motorbikes: Motorbike[] = [];
 
+// create an array of vehicles
+const vehicles: (Truck | Car | Motorbike)[] = [];
 
 // TODO: uncomment once trucks are implemented
- const truck1 = new Truck(Cli.generateVin(),"red", "Ford", "F-150", 2021, 5000, 120, [], 10000);
+const truck1 = new Truck(Cli.generateVin(), "red", "Ford", "F-150", 2021, 5000, 120, [], 10000);
 
 // will use default wheels
 const car1 = new Car(
@@ -37,14 +37,13 @@ vehicles.push(truck1);
 vehicles.push(car1);
 vehicles.push(motorbike1);
 
-// TODO: uncomment once trucks are implemented
+// push vehicles to their respective arrays
 trucks.push(truck1);
 cars.push(car1);
-// TODO: uncomment once motorbikes are implemented
- motorbikes.push(motorbike1);
+motorbikes.push(motorbike1);
 
 // create a new instance of the Cli class
-const cli = new Cli(cars);
+const cli = new Cli(vehicles);
 
 // start the cli
 cli.startCli();
